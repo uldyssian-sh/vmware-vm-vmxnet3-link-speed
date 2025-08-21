@@ -16,7 +16,7 @@ Author: **Paladin alias LT**
 
 ## Repository
 
-**Repo name:** `vmware-cis-vm`  
+**Repo name:** `vmware-vm-vmxnet3-link-speed`  
 **Username:** `uldyssian-sh`  
 **Script:** `vmware-vm-vmxnet3-link-speed.ps1`
 

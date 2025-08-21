@@ -30,9 +30,19 @@ Author: **Paladin alias LT**
 
 ---
 
+## Disclaimer
+
+This script is provided **"as is"**, without any warranty of any kind.  
+Use it at your own risk. You are solely responsible for reviewing, testing,  
+and implementing it in your own environment.
+
+---
+
 ## Usage
 
 Open PowerShell and run:
 
 ```powershell
 .\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "your-vcenter-server" -VMName "YourVMName" -LinkSpeed 25000
+
+---

@@ -23,7 +23,7 @@ This script is provided **"as is"**, without any warranty of any kind. Use it at
 ## Repository
 
 **Repo name:** `vmware-vm-vmxnet3-link-speed`  
-**Username:** `uldyssian-sh`  
+**Username:** `Paladin alias LT`  
 **Script:** `vmware-vm-vmxnet3-link-speed.ps1`
 
 ---

@@ -14,6 +14,12 @@ Author: **Paladin alias LT**
 
 ---
 
+## Disclaimer
+
+This script is provided **"as is"**, without any warranty of any kind. Use it at your own risk. You are solely responsible for reviewing, testing, and implementing it in your own environment.
+
+---
+
 ## Repository
 
 **Repo name:** `vmware-vm-vmxnet3-link-speed`  
@@ -27,12 +33,6 @@ Author: **Paladin alias LT**
 - VMware PowerCLI installed
 - Access to vCenter server
 - Permissions to read/write advanced VM settings and power on/off VMs
-
----
-
-## Disclaimer
-
-This script is provided **"as is"**, without any warranty of any kind. Use it at your own risk. You are solely responsible for reviewing, testing, and implementing it in your own environment.
 
 ---
 

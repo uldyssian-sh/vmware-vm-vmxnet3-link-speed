@@ -10,7 +10,7 @@ If it doesn't exist, the VM is gracefully powered off, the setting is added (def
 
 The script is fully **parameterized**, so you can specify the vCenter server, VM name, and link speed at runtime.  
 
-Author: **Paladin alias LT**
+Author: **LT**
 
 ---
 
@@ -23,7 +23,7 @@ This script is provided **"as is"**, without any warranty of any kind. Use it at
 ## Repository
 
 **Repo name:** `vmware-vm-vmxnet3-link-speed`  
-**Username:** `Paladin alias LT`  
+**Username:** `LT`  
 **Script:** `vmware-vm-vmxnet3-link-speed.ps1`
 
 ---

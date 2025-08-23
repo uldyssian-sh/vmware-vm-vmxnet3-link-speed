@@ -10,7 +10,8 @@ If it doesn't exist, the VM is gracefully powered off, the setting is added (def
 
 The script is fully **parameterized**, so you can specify the vCenter server, VM name, and link speed at runtime.  
 
-Author: **LT**
+**Author:** `LT`
+**Version:** `1.0`
 
 ---
 

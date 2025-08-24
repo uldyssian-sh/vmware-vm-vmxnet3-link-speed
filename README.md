@@ -12,6 +12,14 @@ The script is fully **parameterized**, so you can specify the vCenter server, VM
 
 ---
 
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+© 2025 LT
+
+---
+
 ## Disclaimer
 
 This script is provided **"as is"**, without any warranty of any kind. Use it at your own risk. You are solely responsible for reviewing, testing, and implementing it in your own environment.
@@ -44,8 +52,3 @@ Open PowerShell and run:
 .\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "your-vcenter-server" -VMName "YourVMName" -LinkSpeed 25000
 
 ---
-## License
-
-This project is licensed under the [MIT License](./LICENSE).
-
-© 2025 LT

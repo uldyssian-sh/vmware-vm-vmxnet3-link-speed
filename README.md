@@ -44,3 +44,8 @@ Open PowerShell and run:
 .\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "your-vcenter-server" -VMName "YourVMName" -LinkSpeed 25000
 
 ---
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+© 2025 uldyssian-sh

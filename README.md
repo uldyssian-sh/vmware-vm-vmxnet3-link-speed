@@ -48,4 +48,4 @@ Open PowerShell and run:
 
 This project is licensed under the [MIT License](./LICENSE).
 
-© 2025 uldyssian-sh
+© 2025 LT

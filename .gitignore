@@ -1,0 +1,62 @@
+# PowerShell
+*.ps1xml
+*.psd1.bak
+*.psm1.bak
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Pester
+TestResults.xml
+coverage.xml
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+~*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PowerShell execution policy bypass files
+*.ps1.bak
+
+# Credentials and sensitive data
+credentials.xml
+*.credential
+*.cred
+config.json
+secrets.json
+
+# Output files
+output/
+results/
+exports/
+*.json
+*.csv
+*.xml
+
+# Backup files
+*.bak
+*.backup
+*.old

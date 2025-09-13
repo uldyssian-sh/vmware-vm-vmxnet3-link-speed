@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Timeout handling for VM shutdown operations
 - Error handling for missing VMs
 
-## [1.0.0] - 2024-01-15
+## [1.0.0] - 2024-12-19
 
 ### Added
 - Initial release of VMware VMXNET3 Link Speed configuration tool

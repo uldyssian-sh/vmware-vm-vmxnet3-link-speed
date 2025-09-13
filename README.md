@@ -12,7 +12,7 @@
 
 A PowerShell tool for configuring VMXNET3 network adapter link speed in VMware virtual machines using the advanced VMX parameter `ethernet0.linkspeed`.
 
-> **Author**: uldyssian-sh (LT) · **Version**: 1.0 · **License**: MIT
+> **Author**: LT - [GitHub Profile](https://github.com/uldyssian-sh) · **Version**: 1.0 · **License**: MIT
 
 ---
 

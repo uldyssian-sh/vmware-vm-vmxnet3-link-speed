@@ -1,0 +1,17 @@
+apiVersion: v2
+name: vmxnet3-configurator
+description: A Helm chart for VMware VMXNET3 Link Speed Configurator
+type: application
+version: 1.1.0
+appVersion: "1.1.0"
+keywords:
+  - vmware
+  - vsphere
+  - networking
+  - powershell
+home: https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed
+sources:
+  - https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed
+maintainers:
+  - name: uldyssian-sh
+    url: https://github.com/uldyssian-sh

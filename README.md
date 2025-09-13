@@ -4,6 +4,10 @@
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%20%7C%207%2B-blue)](https://github.com/PowerShell/PowerShell)
 [![VMware](https://img.shields.io/badge/VMware-vSphere%207%20%7C%208-orange)](https://www.vmware.com/products/vsphere.html)
 [![CI](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/actions/workflows/ci.yml/badge.svg)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/actions/workflows/ci.yml)
+[![Docker](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/actions/workflows/docker.yml/badge.svg)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/actions/workflows/docker.yml)
+[![Release](https://img.shields.io/github/v/release/uldyssian-sh/vmware-vm-vmxnet3-link-speed)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/releases)
+[![Downloads](https://img.shields.io/github/downloads/uldyssian-sh/vmware-vm-vmxnet3-link-speed/total)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/releases)
+[![Stars](https://img.shields.io/github/stars/uldyssian-sh/vmware-vm-vmxnet3-link-speed)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/stargazers)
 [![Status](https://img.shields.io/badge/Status-Active-success)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed)
 
 A PowerShell tool for configuring VMXNET3 network adapter link speed in VMware virtual machines using the advanced VMX parameter `ethernet0.linkspeed`.

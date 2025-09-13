@@ -35,26 +35,38 @@ VMXNET3 does not expose a traditional "link speed" like physical NICs; however, 
 ---
 
 ## Features
-- Configure VMXNET3 link speed for VMware VMs
-- Graceful VM shutdown and startup during configuration
-- Default 25Gbps link speed with custom value support
-- Comprehensive error handling and logging
-- Automated testing with Pester and PSScriptAnalyzer
-- Cross-platform PowerShell support
+- **PowerShell Module**: Advanced cmdlets for enterprise use
+- **Multiple Adapters**: Support for ethernet0-ethernet3 configuration
+- **Bulk Operations**: CSV-based mass configuration with parallel processing
+- **Pipeline Support**: Full PowerShell pipeline integration
+- **Graceful Power Management**: Automatic VM shutdown/startup
+- **Comprehensive Logging**: Detailed operation logs and error handling
+- **Cross-Platform**: Works on Windows, Linux, and macOS
+- **Automated Testing**: Full test suite with Pester and PSScriptAnalyzer
 
 ---
 
 ## Quick Start
 
+### PowerShell Module (Recommended)
 ```powershell
-# Clone the repository
+# Clone and import module
 git clone https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed.git
-cd vmware-vm-vmxnet3-link-speed
+Import-Module .\vmware-vm-vmxnet3-link-speed\VMwareVMXNET3
 
-# Install PowerCLI (if not already installed)
-Install-Module -Name VMware.PowerCLI -Scope CurrentUser
+# Connect to vCenter
+Connect-VIServer -Server "vcenter.company.com"
 
-# Run the script
+# Configure single VM
+Set-VMXNet3LinkSpeed -VMName "MyVM" -LinkSpeed 25000
+
+# Bulk configuration from CSV
+Set-VMXNet3LinkSpeedBulk -CsvPath "vm-config.csv"
+```
+
+### Legacy Script
+```powershell
+# Run the original script
 .\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "vcenter.company.com" -VMName "MyVM"
 ```
 
@@ -66,17 +78,26 @@ For detailed installation instructions, see [Installation Guide](docs/INSTALLATI
 
 ## Usage
 
-### Basic Usage
+### PowerShell Module Usage
 ```powershell
-# Configure VM with default 25Gbps link speed
-.\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "vcenter.company.com" -VMName "WebServer01"
+# Single VM configuration
+Set-VMXNet3LinkSpeed -VMName "WebServer01" -LinkSpeed 25000
 
-# Configure VM with custom 10Gbps link speed
-.\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "vcenter.company.com" -VMName "DatabaseServer" -LinkSpeed 10000
+# Multiple network adapters
+Set-VMXNet3LinkSpeed -VMName "DBServer" -LinkSpeed 40000 -AdapterIndex 1
+
+# Query current configuration
+Get-VMXNet3LinkSpeed -VMName "Web*"
+
+# Bulk configuration from CSV
+Set-VMXNet3LinkSpeedBulk -CsvPath "examples/vm-config-template.csv"
 ```
 
-### Advanced Usage
-See [examples](examples/) directory for more usage scenarios.
+### Legacy Script Usage
+```powershell
+# Original script method
+.\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "vcenter.company.com" -VMName "WebServer01"
+```
 
 ---
 
@@ -103,9 +124,12 @@ More examples available in the [examples](examples/) directory.
 
 ## Documentation
 
+- [PowerShell Module Guide](docs/MODULE.md) - Advanced module usage and examples
 - [Installation Guide](docs/INSTALLATION.md) - Detailed setup instructions
+- [Performance Guide](docs/PERFORMANCE.md) - Optimization and best practices
+- [Security Guide](docs/SECURITY.md) - Security considerations and compliance
 - [Troubleshooting Guide](docs/TROUBLESHOOTING.md) - Common issues and solutions
-- [Examples](examples/) - Usage examples and scenarios
+- [Examples](examples/) - Usage examples and CSV templates
 - [Contributing](CONTRIBUTING.md) - How to contribute to the project
 - [Changelog](CHANGELOG.md) - Version history and changes
 

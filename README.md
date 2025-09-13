@@ -8,7 +8,7 @@
 
 A PowerShell tool for configuring VMXNET3 network adapter link speed in VMware virtual machines using the advanced VMX parameter `ethernet0.linkspeed`.
 
-> **Author**: Paladin (LT) · **Version**: 1.0 · **License**: MIT
+> **Author**: uldyssian-sh (LT) · **Version**: 1.0 · **License**: MIT
 
 ---
 

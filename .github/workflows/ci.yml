@@ -8,7 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup PowerShell
-        uses: actions/setup-pwsh@v2
+        shell: pwsh
+        run: Write-Host "PowerShell is ready"
       - name: Install tooling
         shell: pwsh
         run: |

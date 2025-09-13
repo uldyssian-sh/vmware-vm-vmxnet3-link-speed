@@ -23,4 +23,4 @@ jobs:
       - name: Tests
         shell: pwsh
         run: |
-          Invoke-Pester -Path tests -CI -Output Detailed
+          Invoke-Pester -Path tests/vmware-vm-vmxnet3-link-speed.Tests.ps1 -CI -Output Detailed

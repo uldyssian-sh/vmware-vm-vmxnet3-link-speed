@@ -32,9 +32,11 @@ A PowerShell tool for configuring VMXNET3 network adapter link speed in VMware v
 ---
 
 ## Overview
-VMXNET3 does not expose a traditional "link speed" like physical NICs; however, vSphere supports an **advanced VMX parameter** `ethernet0.linkspeed` that can be configured for testing/lab purposes. This tool helps you **inspect and set** that parameter safely.
+VMXNET3 does not expose a traditional "link speed" like physical NICs; however, vSphere supports an **advanced VMX parameter** `ethernet0.linkspeed` that can be configured for testing/lab purposes.
+This tool helps you **inspect and set** that parameter safely.
 
-> ⚠️ **Note:** This is primarily for **lab/testing**. Production changes should follow your org's change management and vendor guidance.
+> ⚠️ **Note:** This is primarily for **lab/testing**.
+Production changes should follow your org's change management and vendor guidance.
 
 ---
 
@@ -187,7 +189,8 @@ Invoke-ScriptAnalyzer -Path . -Settings ./.config/PSScriptAnalyzerSettings.psd1 
 If you encounter issues:
 1. Check the [Troubleshooting Guide](docs/TROUBLESHOOTING.md)
 2. Search [existing issues](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/issues)
-3. Create a [new issue](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/issues/new) with detailed information
+3.
+Create a [new issue](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/issues/new) with detailed information
 
 ## License
 
@@ -201,7 +204,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**⚠️ Important**: This tool is designed for lab and testing environments. Always test thoroughly before using in production and follow your organization's change management procedures.
+**⚠️ Important**: This tool is designed for lab and testing environments.
+Always test thoroughly before using in production and follow your organization's change management procedures.
 
 ## 🔒 Security Notice
 

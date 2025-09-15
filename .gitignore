@@ -60,3 +60,12 @@ exports/
 *.bak
 *.backup
 *.old
+# Environment variables
+.env
+*.env
+
+# Credentials and secrets
+credentials.json
+secrets.yaml
+*.pem
+*.key

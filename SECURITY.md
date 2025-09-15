@@ -1,63 +1,65 @@
 # Security Policy
 
-[![Security Rating](https://img.shields.io/badge/Security-Enterprise-green.svg)](https://github.com/uldyssian-sh)
+## Supported Versions
 
-## 🛡️ Security Overview
+Use this section to tell people about which versions of your project are currently being supported with security updates.
 
-Enterprise-grade security implementation with zero-trust architecture and comprehensive threat protection.
+| Version | Supported          |
+| ------- | ------------------ |
+| 2.x.x   | :white_check_mark: |
+| 1.x.x   | :white_check_mark: |
+| < 1.0   | :x:                |
 
-## 🔄 Supported Versions
+## Reporting a Vulnerability
 
-| Version | Supported | Security Updates | End of Life |
-|---------|-----------|------------------|-------------|
-| 2.x.x   | ✅ Yes    | Active          | TBD         |
-| 1.x.x   | ✅ Yes    | Critical Only   | 2025-12-31  |
-| < 1.0   | ❌ No     | None            | 2024-01-01  |
+Use this section to tell people how to report a vulnerability.
 
-## 🔐 Security Controls
+Tell them where to go, how often they can expect to get an update on a reported vulnerability, what to expect if the vulnerability is accepted or declined, etc.
 
-### Authentication & Authorization
-- **Multi-Factor Authentication (MFA)** - Required for all access
-- **Role-Based Access Control (RBAC)** - Principle of least privilege
-- **Single Sign-On (SSO)** - Enterprise identity integration
+**Please do not report security vulnerabilities through public GitHub issues.**
 
-### Data Protection
-- **Encryption at Rest** - AES-256 encryption
-- **Encryption in Transit** - TLS 1.3 for all communications
-- **Key Management** - Secure key rotation and storage
+Instead, please report them via GitHub Security Advisories:
 
-### Infrastructure Security
-- **Network Segmentation** - Isolated security zones
-- **Intrusion Detection** - Real-time threat monitoring
-- **Vulnerability Scanning** - Automated security assessments
+1. Go to the Security tab of this repository
+2. Click "Report a vulnerability" 
+3. Fill out the advisory form with details about the vulnerability
 
-## 🔍 Vulnerability Management
+### What to include in your report
 
-### Response Times
-| Severity | Response | Patch Time | Notification |
-|----------|----------|------------|--------------|
-| Critical | 2 hours  | 24 hours   | Immediate    |
-| High     | 8 hours  | 72 hours   | 4 hours      |
-| Medium   | 24 hours | 7 days     | 24 hours     |
-| Low      | 72 hours | 30 days    | Weekly       |
+- Type of issue (e.g. buffer overflow, SQL injection, cross-site scripting, etc.)
+- Full paths of source file(s) related to the manifestation of the issue
+- The location of the affected source code (tag/branch/commit or direct URL)
+- Any special configuration required to reproduce the issue
+- Step-by-step instructions to reproduce the issue
+- Proof-of-concept or exploit code (if possible)
+- Impact of the issue, including how an attacker might exploit the issue
 
-## 🚨 Reporting Security Issues
+### Response timeline
 
-**🔒 DO NOT create public GitHub issues for security vulnerabilities.**
+- **Initial response**: 48 hours
+- **Status update**: 7 days  
+- **Resolution target**: 90 days
+- **Public disclosure**: After fix is available
 
-### Contact Information
-- **Emergency Hotline**: +1-555-SEC-RITY (24/7)
-- **Bug Bounty**: [HackerOne Program](https://hackerone.com/uldyssian-sh)
+### Security measures
 
-### Response Process
-1. **Initial Response** - 24 hours
-2. **Triage & Assessment** - 72 hours
-3. **Resolution** - Based on severity
-4. **Disclosure** - 90 days after fix
+This project implements the following security measures:
 
-## 📞 Security Contacts
+- Regular dependency updates via Dependabot
+- Automated security scanning via CodeQL
+- Code review requirements for all changes
+- Principle of least privilege access controls
 
+### Security best practices
 
----
+When using this project:
 
-*Last Updated: 2024-01-01*  
+- Keep all dependencies up to date
+- Follow VMware security hardening guidelines
+- Use strong authentication mechanisms
+- Implement proper network segmentation
+- Monitor for suspicious activities
+
+### Contact
+
+For questions about this security policy, contact the repository maintainers through GitHub issues (for non-security related questions only).

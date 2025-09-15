@@ -69,3 +69,15 @@ credentials.json
 secrets.yaml
 *.pem
 *.key
+
+# Performance optimization
+*.log
+*.tmp
+*.cache
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+node_modules/
+.vscode/settings.json
+.idea/

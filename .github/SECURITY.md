@@ -2,48 +2,64 @@
 
 ## Supported Versions
 
+Use this section to tell people about which versions of your project are currently being supported with security updates.
+
 | Version | Supported          |
 | ------- | ------------------ |
-| Latest  | :white_check_mark: |
-| < Latest| :x:                |
+| 2.x.x   | :white_check_mark: |
+| 1.x.x   | :white_check_mark: |
+| < 1.0   | :x:                |
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please report it responsibly:
+Use this section to tell people how to report a vulnerability.
 
-### How to Report
-- **Email**: Create an issue with label `security`
-- **Response Time**: We aim to respond within 48 hours
-- **Updates**: You will receive updates every 7 days
+Tell them where to go, how often they can expect to get an update on a reported vulnerability, what to expect if the vulnerability is accepted or declined, etc.
 
-### What to Include
-- Description of the vulnerability
-- Steps to reproduce
-- Potential impact
-- Suggested fix (if available)
+**Please do not report security vulnerabilities through public GitHub issues.**
 
-### Our Commitment
-- We will acknowledge receipt within 48 hours
-- We will provide a detailed response within 7 days
-- We will work with you to understand and resolve the issue
-- We will credit you in our security advisories (if desired)
+Instead, please report them via GitHub Security Advisories:
 
-## Security Best Practices
+1. Go to the Security tab of this repository
+2. Click "Report a vulnerability" 
+3. Fill out the advisory form with details about the vulnerability
 
-### For Contributors
-- Keep dependencies updated
-- Follow secure coding practices
-- Run security scans before submitting PRs
-- Never commit secrets or credentials
+### What to include in your report
 
-### For Users
-- Always use the latest version
-- Report suspicious behavior
-- Follow installation instructions carefully
-- Keep your environment updated
+- Type of issue (e.g. buffer overflow, SQL injection, cross-site scripting, etc.)
+- Full paths of source file(s) related to the manifestation of the issue
+- The location of the affected source code (tag/branch/commit or direct URL)
+- Any special configuration required to reproduce the issue
+- Step-by-step instructions to reproduce the issue
+- Proof-of-concept or exploit code (if possible)
+- Impact of the issue, including how an attacker might exploit the issue
 
-## Contact
+### Response timeline
 
-For security-related questions: Create an issue with `security` label.
+- **Initial response**: 48 hours
+- **Status update**: 7 days  
+- **Resolution target**: 90 days
+- **Public disclosure**: After fix is available
 
-Thank you for helping keep our project secure!
+### Security measures
+
+This project implements the following security measures:
+
+- Regular dependency updates via Dependabot
+- Automated security scanning via CodeQL
+- Code review requirements for all changes
+- Principle of least privilege access controls
+
+### Security best practices
+
+When using this project:
+
+- Keep all dependencies up to date
+- Follow VMware security hardening guidelines
+- Use strong authentication mechanisms
+- Implement proper network segmentation
+- Monitor for suspicious activities
+
+### Contact
+
+For questions about this security policy, contact the repository maintainers through GitHub issues (for non-security related questions only).

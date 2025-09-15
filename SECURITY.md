@@ -46,7 +46,6 @@ Enterprise-grade security implementation with zero-trust architecture and compre
 **🔒 DO NOT create public GitHub issues for security vulnerabilities.**
 
 ### Contact Information
-- **Email**: security@uldyssian-sh.com
 - **Emergency Hotline**: +1-555-SEC-RITY (24/7)
 - **Bug Bounty**: [HackerOne Program](https://hackerone.com/uldyssian-sh)
 
@@ -58,11 +57,7 @@ Enterprise-grade security implementation with zero-trust architecture and compre
 
 ## 📞 Security Contacts
 
-- **CISO**: security-ciso@uldyssian-sh.com
-- **Security Engineering**: security-eng@uldyssian-sh.com
-- **Incident Response**: incident-response@uldyssian-sh.com
 
 ---
 
 *Last Updated: 2024-01-01*  
-*Security Team: security@uldyssian-sh.com*

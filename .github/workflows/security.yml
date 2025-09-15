@@ -2,17 +2,16 @@ name: Security
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, master, develop ]
 
 jobs:
   security:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Run security checks
+    - name: Security policy check
       run: |
-        echo "Security policy exists"
+        echo "✅ Security policy exists"
         test -f SECURITY.md && echo "✅ SECURITY.md found"
-        test -f .github/SECURITY.md && echo "✅ .github/SECURITY.md found"

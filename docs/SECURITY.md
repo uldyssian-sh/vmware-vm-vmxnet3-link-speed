@@ -100,13 +100,13 @@ function Write-AuditLog {
         [string]$Message,
         [string]$Level = "INFO"
     )
-    
+
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     $logEntry = "$timestamp [$Level] $Message"
-    
+
     # Write to file
     Add-Content -Path "vmxnet3-audit.log" -Value $logEntry
-    
+
     # Write to Windows Event Log (if on Windows)
     if ($IsWindows) {
         Write-EventLog -LogName Application -Source "VMXNET3-Tool" -EventId 1001 -Message $Message
@@ -128,7 +128,7 @@ function Record-ConfigurationChange {
         [string]$NewValue,
         [string]$User
     )
-    
+
     $changeRecord = [PSCustomObject]@{
         Timestamp = Get-Date -Format "o"
         VMName = $VMName
@@ -138,7 +138,7 @@ function Record-ConfigurationChange {
         User = $User
         ComputerName = $env:COMPUTERNAME
     }
-    
+
     # Export to CSV for audit trail
     $changeRecord | Export-Csv -Path "vmxnet3-changes.csv" -Append -NoTypeInformation
 }
@@ -217,21 +217,21 @@ function Invoke-EmergencyRollback {
         [string]$VMName,
         [string]$vCenterServer
     )
-    
+
     try {
         Connect-VIServer -Server $vCenterServer
         $vm = Get-VM -Name $VMName
-        
+
         # Remove the advanced setting
         $setting = Get-AdvancedSetting -Entity $vm -Name "ethernet0.linkspeed"
         if ($setting) {
             Remove-AdvancedSetting -AdvancedSetting $setting -Confirm:$false
             Write-Host "Removed ethernet0.linkspeed setting from $VMName"
         }
-        
+
         # Restart VM to apply changes
         Restart-VM -VM $vm -Confirm:$false
-        
+
     } catch {
         Write-Error "Rollback failed: $($_.Exception.Message)"
     } finally {
@@ -252,16 +252,16 @@ function Test-ChangeApproval {
         [string]$VMName,
         [string]$TicketNumber
     )
-    
+
     # Check if change is approved (integrate with your ITSM system)
     $approved = $false
-    
+
     # Example: Check against approved changes database
     $approvedChanges = Import-Csv -Path "approved-changes.csv"
     $approved = $approvedChanges | Where-Object {
         $_.VMName -eq $VMName -and $_.TicketNumber -eq $TicketNumber
     }
-    
+
     return [bool]$approved
 }
 
@@ -289,12 +289,12 @@ function New-ComplianceReport {
         SecurityEvents = @()
         ChangeRecords = @()
     }
-    
+
     # Collect configured VMs
     $vms = Get-VM | Where-Object {
         Get-AdvancedSetting -Entity $_ -Name "ethernet0.linkspeed" -ErrorAction SilentlyContinue
     }
-    
+
     foreach ($vm in $vms) {
         $setting = Get-AdvancedSetting -Entity $vm -Name "ethernet0.linkspeed"
         $report.ConfiguredVMs += [PSCustomObject]@{
@@ -303,7 +303,7 @@ function New-ComplianceReport {
             LastModified = $setting.LastModified
         }
     }
-    
+
     return $report
 }
 ```

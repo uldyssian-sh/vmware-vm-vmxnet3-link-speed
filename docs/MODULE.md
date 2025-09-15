@@ -159,10 +159,10 @@ $vCenters = @("vcenter1.company.com", "vcenter2.company.com")
 
 foreach ($vCenter in $vCenters) {
     Connect-VIServer -Server $vCenter
-    
+
     # Configure VMs in this vCenter
     Set-VMXNet3LinkSpeedBulk -CsvPath "config-$($vCenter.Split('.')[0]).csv"
-    
+
     Disconnect-VIServer -Confirm:$false
 }
 ```

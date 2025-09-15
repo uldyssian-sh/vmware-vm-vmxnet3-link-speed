@@ -1,5 +1,22 @@
 # VMware VMXNET3 Link Speed Configurator
 
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
+
+## Prerequisites
+
+Before using this project, ensure you have:
+- Required tools and dependencies
+- Proper access credentials
+- System requirements met
+
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%20%7C%207%2B-blue)](https://github.com/PowerShell/PowerShell)
 [![VMware](https://img.shields.io/badge/VMware-vSphere%207%20%7C%208-orange)](https://www.vmware.com/products/vsphere.html)
@@ -218,3 +235,21 @@ This repository contains example configurations and templates. Before using in p
 5. **Regularly rotate credentials** and access keys
 
 For more security guidelines, see [SECURITY.md](SECURITY.md).
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on:
+- How to submit issues
+- How to propose changes
+- Code style guidelines
+- Review process
+
+## Support
+
+- 📖 [Wiki Documentation](../../wiki)
+- 💬 [Discussions](../../discussions)
+- 🐛 [Issue Tracker](../../issues)
+- 🔒 [Security Policy](SECURITY.md)
+
+---
+**Made with ❤️ for the community**

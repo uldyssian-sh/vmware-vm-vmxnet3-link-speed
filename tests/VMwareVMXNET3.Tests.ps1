@@ -78,6 +78,7 @@ Describe 'Script Validation' {
         }
 
         It 'Should contain required parameters' {
+            $scriptContent = Get-Content $script:mainScriptPath -Raw
             $scriptContent | Should -Match 'param\s*\('
             $scriptContent | Should -Match '\$vCenter'
             $scriptContent | Should -Match '\$VMName'
@@ -85,11 +86,13 @@ Describe 'Script Validation' {
         }
 
         It 'Should have proper error handling' {
+            $scriptContent = Get-Content $script:mainScriptPath -Raw
             $scriptContent | Should -Match 'ErrorAction\s+SilentlyContinue'
             $scriptContent | Should -Match 'if\s*\(\s*-not\s+\$vm\s*\)'
         }
 
         It 'Should handle VM power operations' {
+            $scriptContent = Get-Content $script:mainScriptPath -Raw
             $scriptContent | Should -Match 'Shutdown-VMGuest'
             $scriptContent | Should -Match 'Start-VM'
             $scriptContent | Should -Match 'PowerState'

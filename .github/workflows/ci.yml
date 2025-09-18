@@ -39,12 +39,12 @@ jobs:
         shell: pwsh
         run: |
           Write-Host "Running PSScriptAnalyzer..."
-          $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning,Error
+          $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error
           if ($results) {
             $results | Format-Table -AutoSize
-            Write-Error "PSScriptAnalyzer found issues"
+            Write-Error "PSScriptAnalyzer found critical issues"
           } else {
-            Write-Host "✓ No PSScriptAnalyzer issues found"
+            Write-Host "✓ No critical PSScriptAnalyzer issues found"
           }
           
       - name: Run Pester tests

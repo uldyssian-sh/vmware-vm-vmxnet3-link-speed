@@ -21,7 +21,7 @@ function Show-VMXNet3Dashboard {
                 Write-Host "vCenter: $vCenter" -ForegroundColor Cyan
                 Connect-VIServer -Server $vCenter -ErrorAction Stop
                 
-                $vms = Get-VM | Where-Object {$_.PowerState -eq "PoweredOn"}
+                $vms = Get-VM | Where-Object { $_.PowerState -eq "PoweredOn" }
                 $totalVMs += $vms.Count
                 
                 $configured = $vms | ForEach-Object {

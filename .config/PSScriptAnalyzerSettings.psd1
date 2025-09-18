@@ -3,7 +3,12 @@
     ExcludeRules = @(
         'PSAvoidUsingWriteHost',
         'PSUseShouldProcessForStateChangingFunctions',
-        'PSAvoidUsingPlainTextForPassword'
+        'PSAvoidUsingPlainTextForPassword',
+        'PSUseBOMForUnicodeEncodedFile',
+        'PSReviewUnusedParameter',
+        'PSUseDeclaredVarsMoreThanAssignments',
+        'PSUseSingularNouns',
+        'PSUseConsistentWhitespace'
     )
     Rules = @{
         PSPlaceOpenBrace = @{

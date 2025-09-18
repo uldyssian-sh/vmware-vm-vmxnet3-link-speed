@@ -24,9 +24,9 @@ for ($i = 0; $i -lt $batches; $i++) {
     $results = $batch | ForEach-Object -Parallel {
         try {
             Set-VMXNet3LinkSpeed -VMName $_.VMName -LinkSpeed ([int]$_.LinkSpeed) -Force
-            [PSCustomObject]@{VM = $_.VMName; Status = "Success"; Error = $null}
+            [PSCustomObject]@{ VM = $_.VMName; Status = "Success"; Error = $null }
         } catch {
-            [PSCustomObject]@{VM = $_.VMName; Status = "Failed"; Error = $_.Exception.Message}
+            [PSCustomObject]@{ VM = $_.VMName; Status = "Failed"; Error = $_.Exception.Message }
         }
     } -ThrottleLimit 5
     

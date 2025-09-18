@@ -21,10 +21,10 @@ Paladin alias LT
 #>
 
 param (
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory = $true)]
     [string]$vCenter,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory = $true)]
     [string]$VMName,
 
     [int]$LinkSpeed = 25000

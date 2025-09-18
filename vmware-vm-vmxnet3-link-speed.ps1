@@ -43,14 +43,12 @@ if (-not $vm) {
     exit
 }
 
-
 # Check if the advanced setting exists
 $param = Get-AdvancedSetting -Entity $vm -Name "ethernet0.linkspeed" -ErrorAction SilentlyContinue
 
 if ($param) {
     Write-Output "$($vm.Name): Ok, 'ethernet0.linkspeed' already configured."
-}
-else {
+} else {
     # Power off the VM if needed
     if ($vm.PowerState -eq "PoweredOn") {
         Write-Output "Powering off VM '$($vm.Name)'..."

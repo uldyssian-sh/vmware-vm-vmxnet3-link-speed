@@ -51,7 +51,7 @@ $results = foreach ($VM in $VMs) {
 $results | Format-Table -AutoSize
 
 # Example 2: Configuration with pre-checks
-function Test-VMPrerequisites {
+function Test-VMPrerequisite {
     param(
         [string]$vCenter,
         [string]$VMName
@@ -102,7 +102,7 @@ $vCenterServer = "vcenter.lab.local"
 foreach ($VM in $VMsToCheck) {
     Write-Host "Checking prerequisites for $VM..." -ForegroundColor Yellow
     
-    $PreCheck = Test-VMPrerequisites -vCenter $vCenterServer -VMName $VM
+    $PreCheck = Test-VMPrerequisite -vCenter $vCenterServer -VMName $VM
     
     if ($PreCheck.VMExists -and $PreCheck.HasVMXNET3 -and -not $PreCheck.SettingExists) {
         Write-Host "✓ $VM is ready for configuration" -ForegroundColor Green
@@ -142,12 +142,10 @@ foreach ($VM in $VMConfiguration.Keys) {
 
 # Example 5: Parallel processing for large environments
 $VMs = @("VM001", "VM002", "VM003", "VM004", "VM005")
-$vCenterServer = "vcenter.company.com"
 $MaxConcurrent = 3
 
 $VMs | ForEach-Object -ThrottleLimit $MaxConcurrent -Parallel {
     $VM = $_
-    $vCenter = $using:vCenterServer
     
     try {
         # Note: In real parallel execution, you'd need to handle PowerCLI module import

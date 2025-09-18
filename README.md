@@ -8,20 +8,21 @@
 
 ## 📋 Overview
 
-PowerShell module and script for configuring VMXNET3 network adapter link speeds in VMware vSphere environments. Provides enterprise-grade automation for optimizing VM network performance.
+Enterprise-grade PowerShell module for configuring VMXNET3 network adapter link speeds in VMware vSphere environments. Features comprehensive automation, bulk operations, and production-ready CI/CD pipeline.
 
 **Repository Type:** VMware PowerShell Module  
-**Technology Stack:** PowerCLI, vSphere API, PowerShell
+**Technology Stack:** PowerCLI, vSphere API, PowerShell, Docker, GitHub Actions
 
 ## ✨ Features
 
-- 🚀 **High Performance** - Optimized for enterprise environments
-- 🔒 **Security First** - Built with security best practices
-- 📊 **Monitoring** - Comprehensive logging and metrics
-- 🔧 **Automation** - Fully automated deployment and management
-- 📚 **Documentation** - Extensive documentation and examples
-- 🧪 **Testing** - Comprehensive test coverage
-- 🔄 **CI/CD** - Automated testing and deployment pipelines
+- 🚀 **PowerShell Module** - VMwareVMXNET3 with 3 core functions
+- 🔧 **Bulk Operations** - CSV-based mass configuration
+- 📊 **Monitoring** - Real-time dashboard and reporting
+- 🧪 **Testing** - 26+ Pester tests with full validation
+- 🔒 **Security** - Automated scanning and verified commits
+- 🔄 **CI/CD** - GitHub Actions with multi-stage validation
+- 📚 **Documentation** - Complete guides and examples
+- 🐳 **Docker** - PowerShell Core container support
 
 ## 🚀 Quick Start
 
@@ -52,11 +53,14 @@ Import-Module .\VMwareVMXNET3
 # Connect to vCenter
 Connect-VIServer -Server "vcenter.company.com"
 
-# Configure single VM
+# Configure single VM (25 Gbps)
 Set-VMXNet3LinkSpeed -VMName "WebServer01" -LinkSpeed 25000
 
 # Query current configuration
 Get-VMXNet3LinkSpeed -VMName "WebServer01"
+
+# Bulk configuration from CSV
+Set-VMXNet3LinkSpeedBulk -CsvPath "vm-config.csv"
 ```
 
 ## 📖 Documentation
@@ -91,32 +95,38 @@ Set-PowerCLIConfiguration -ParticipateInCEIP $false -Confirm:$false
 .\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "vcenter.company.com" -VMName "WebServer01" -LinkSpeed 25000
 ```
 
-### Module Functions
+### Advanced Usage
 
 ```powershell
-# Configure multiple VMs
-Set-VMXNet3LinkSpeedBulk -CsvPath "vm-config.csv"
+# Configure specific network adapter
+Set-VMXNet3LinkSpeed -VMName "DBServer" -LinkSpeed 40000 -AdapterIndex 1
 
-# Query all web servers
+# Query multiple VMs with pipeline
 Get-VM -Name "Web*" | Get-VMXNet3LinkSpeed
 
-# Configure specific adapter
-Set-VMXNet3LinkSpeed -VMName "DBServer" -LinkSpeed 40000 -AdapterIndex 1
+# Bulk operations with logging
+Set-VMXNet3LinkSpeedBulk -CsvPath "config.csv" -LogPath "deployment.log" -MaxConcurrent 5
+
+# Force overwrite existing settings
+Set-VMXNet3LinkSpeed -VMName "TestVM" -LinkSpeed 10000 -Force
 ```
 
 ## 🧪 Testing
 
-Run the test suite:
+**Test Coverage:** 26 tests across 3 test files
 
 ```powershell
-# Install Pester testing framework
+# Install testing framework
 Install-Module -Name Pester -Force
 
-# Run all tests
+# Run all tests (26 tests)
 Invoke-Pester -Path .\tests\
 
-# Run specific test file
-Invoke-Pester -Path .\tests\vmware-vm-vmxnet3-link-speed.Tests.ps1
+# Run specific test suite
+Invoke-Pester -Path .\tests\VMwareVMXNET3.Tests.ps1
+
+# Code quality analysis
+Invoke-ScriptAnalyzer -Path . -Recurse
 ```
 
 ## 🤝 Contributing
@@ -168,6 +178,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Security Research Community
 
 ## 📈 Project Stats
+
+- **Module Functions:** 3 (Set, Get, Bulk)
+- **Test Coverage:** 26 tests
+- **CI/CD Stages:** 3 (Validation, Security, Documentation)
+- **Supported Speeds:** 100 Mbps - 100 Gbps
+- **Docker Support:** ✅ PowerShell Core
+- **GitHub Free Tier:** ✅ Optimized
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed)

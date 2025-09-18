@@ -7,24 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-12-19
+
 ### Added
-- Comprehensive test suite with Pester
-- PSScriptAnalyzer configuration for code quality
-- Installation and troubleshooting documentation
-- Usage examples and best practices
-- Contributing guidelines
-- GitHub Actions CI/CD pipeline
+- **PowerShell Module (VMwareVMXNET3)** - Complete module with advanced functions
+- **Set-VMXNet3LinkSpeed** - Enhanced function with parameter validation
+- **Get-VMXNet3LinkSpeed** - Query current VMXNET3 configurations
+- **Set-VMXNet3LinkSpeedBulk** - Bulk operations from CSV files
+- **Comprehensive test suite** with Pester framework
+- **PSScriptAnalyzer configuration** for code quality assurance
+- **Enhanced CI/CD pipeline** with PowerShell validation
+- **Docker support** with PowerShell Core
+- **Detailed documentation** - Installation, Module usage, Troubleshooting
+- **Example scripts** - Basic and advanced usage scenarios
+- **CSV template** for bulk operations
 
 ### Changed
-- Improved error handling and logging
-- Enhanced script documentation
-- Better code structure and readability
+- **README.md** - Complete rewrite for PowerShell focus
+- **Requirements.txt** - Updated for PowerShell modules
+- **CI workflow** - Enhanced with security scanning and documentation checks
+- **Examples** - Modernized with module functions
+- **Error handling** - Improved throughout all functions
 
 ### Fixed
-- Timeout handling for VM shutdown operations
-- Error handling for missing VMs
+- **Documentation links** - All internal links now functional
+- **PowerShell syntax** - All scripts validated
+- **Module structure** - Proper PowerShell module format
+- **Parameter validation** - Enhanced input validation
+- **Security** - Removed potential PII and secrets
 
-## [1.0.0] - 2024-12-19
+### Security
+- **PII removal** - No personal information in codebase
+- **Secret scanning** - Automated detection in CI
+- **Code analysis** - PSScriptAnalyzer integration
+
+## [1.0.0] - 2024-12-18
 
 ### Added
 - Initial release of VMware VMXNET3 Link Speed configuration tool

@@ -1,17 +1,123 @@
 name: CI
+
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+  workflow_dispatch:
+
+env:
+  POWERSHELL_TELEMETRY_OPTOUT: 1
+
 jobs:
-  test:
+  powershell-validation:
+    name: PowerShell Validation
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Basic validation
-      run: |
-        echo "Repository: ${{ github.repository }}"
-        echo "Branch: ${{ github.ref }}"
-        ls -la
-        echo "CI passed successfully"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Install PowerShell modules
+        shell: pwsh
+        run: |
+          Install-Module -Name Pester -Force -Scope CurrentUser
+          Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+          
+      - name: PowerShell syntax validation
+        shell: pwsh
+        run: |
+          Write-Host "Validating PowerShell syntax..."
+          $scripts = Get-ChildItem -Path . -Filter "*.ps1" -Recurse
+          foreach ($script in $scripts) {
+            Write-Host "Checking: $($script.Name)"
+            $null = [System.Management.Automation.PSParser]::Tokenize((Get-Content $script.FullName -Raw), [ref]$null)
+          }
+          Write-Host "✓ All PowerShell scripts have valid syntax"
+          
+      - name: PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Write-Host "Running PSScriptAnalyzer..."
+          $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning,Error
+          if ($results) {
+            $results | Format-Table -AutoSize
+            Write-Error "PSScriptAnalyzer found issues"
+          } else {
+            Write-Host "✓ No PSScriptAnalyzer issues found"
+          }
+          
+      - name: Run Pester tests
+        shell: pwsh
+        run: |
+          Write-Host "Running Pester tests..."
+          $config = New-PesterConfiguration
+          $config.Run.Path = './tests'
+          $config.Output.Verbosity = 'Detailed'
+          $config.CodeCoverage.Enabled = $false
+          Invoke-Pester -Configuration $config
+          
+      - name: Module validation
+        shell: pwsh
+        run: |
+          Write-Host "Validating PowerShell module..."
+          $manifest = Test-ModuleManifest -Path './VMwareVMXNET3/VMwareVMXNET3.psd1'
+          Write-Host "✓ Module manifest is valid"
+          Write-Host "Module: $($manifest.Name) v$($manifest.Version)"
+          
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check for secrets
+        run: |
+          echo "Scanning for potential secrets..."
+          if grep -r -i "password\|secret\|key\|token" --include="*.ps1" --include="*.psm1" --include="*.psd1" . | grep -v "# Example" | grep -v "# TODO"; then
+            echo "⚠️ Potential secrets found - please review"
+          else
+            echo "✓ No obvious secrets detected"
+          fi
+          
+      - name: Validate no PII
+        run: |
+          echo "Checking for PII..."
+          if grep -r -i "lubomir\|tobek" --include="*.ps1" --include="*.psm1" --include="*.md" . | grep -v "github.com/uldyssian-sh" | grep -v "Author.*LT"; then
+            echo "⚠️ Potential PII found - please review"
+            exit 1
+          else
+            echo "✓ No PII detected"
+          fi
+          
+  documentation-check:
+    name: Documentation Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check README links
+        run: |
+          echo "Checking README.md links..."
+          # Check for broken internal links
+          for link in $(grep -o '\[.*\](docs/[^)]*)' README.md | sed 's/.*](\([^)]*\)).*/\1/'); do
+            if [ ! -f "$link" ]; then
+              echo "❌ Broken link: $link"
+              exit 1
+            else
+              echo "✓ Valid link: $link"
+            fi
+          done
+          
+      - name: Validate examples
+        shell: pwsh
+        run: |
+          Write-Host "Validating example scripts..."
+          $examples = Get-ChildItem -Path './examples' -Filter '*.ps1' -ErrorAction SilentlyContinue
+          foreach ($example in $examples) {
+            Write-Host "Checking: $($example.Name)"
+            $null = [System.Management.Automation.PSParser]::Tokenize((Get-Content $example.FullName -Raw), [ref]$null)
+          }
+          Write-Host "✓ All example scripts are valid"

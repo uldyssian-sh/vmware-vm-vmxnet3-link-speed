@@ -1,20 +1,33 @@
 # Advanced Usage Examples for VMware VMXNET3 Link Speed Configuration
 
-# Example 1: Batch configuration with error handling and logging
+# Prerequisites
+Import-Module VMware.PowerCLI
+Import-Module .\VMwareVMXNET3
+
+# Connect to vCenter
+Connect-VIServer -Server "vcenter.company.com"
+
+# Example 1: Batch configuration with comprehensive logging
 $VMs = @("Web01", "Web02", "App01", "App02", "DB01")
-$vCenterServer = "vcenter.company.com"
 $LogFile = "vmxnet3-config-$(Get-Date -Format 'yyyyMMdd-HHmmss').log"
 
-foreach ($VM in $VMs) {
+$results = foreach ($VM in $VMs) {
     try {
         Write-Host "Processing VM: $VM" -ForegroundColor Green
         $StartTime = Get-Date
         
-        .\vmware-vm-vmxnet3-link-speed.ps1 -vCenter $vCenterServer -VMName $VM -LinkSpeed 25000
+        Set-VMXNet3LinkSpeed -VMName $VM -LinkSpeed 25000 -Force
         
         $Duration = (Get-Date) - $StartTime
         $LogEntry = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') - SUCCESS: $VM configured in $($Duration.TotalSeconds) seconds"
         Add-Content -Path $LogFile -Value $LogEntry
+        
+        [PSCustomObject]@{
+            VM = $VM
+            Status = "Success"
+            Duration = $Duration.TotalSeconds
+            Error = $null
+        }
         
     } catch {
         $ErrorMessage = $_.Exception.Message
@@ -22,11 +35,20 @@ foreach ($VM in $VMs) {
         
         $LogEntry = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') - ERROR: $VM failed - $ErrorMessage"
         Add-Content -Path $LogFile -Value $LogEntry
+        
+        [PSCustomObject]@{
+            VM = $VM
+            Status = "Failed"
+            Duration = 0
+            Error = $ErrorMessage
+        }
     }
     
-    # Add delay between VMs to avoid overwhelming vCenter
-    Start-Sleep -Seconds 5
+    Start-Sleep -Seconds 2
 }
+
+# Display summary
+$results | Format-Table -AutoSize
 
 # Example 2: Configuration with pre-checks
 function Test-VMPrerequisites {

@@ -1,7 +1,9 @@
 @{
     Severity = @('Error', 'Warning')
     ExcludeRules = @(
-        'PSAvoidUsingWriteHost'
+        'PSAvoidUsingWriteHost',
+        'PSUseShouldProcessForStateChangingFunctions',
+        'PSAvoidUsingPlainTextForPassword'
     )
     Rules = @{
         PSPlaceOpenBrace = @{

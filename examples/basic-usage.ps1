@@ -1,24 +1,42 @@
 # Basic Usage Examples for VMware VMXNET3 Link Speed Configuration
 
-# Example 1: Configure VM with default 25Gbps link speed
-.\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "vcenter.company.com" -VMName "WebServer01"
+# Prerequisites
+Import-Module VMware.PowerCLI
+Import-Module .\VMwareVMXNET3
+
+# Connect to vCenter
+Connect-VIServer -Server "vcenter.company.com"
+
+# Example 1: Configure single VM with 25Gbps link speed
+Set-VMXNet3LinkSpeed -VMName "WebServer01" -LinkSpeed 25000
 
 # Example 2: Configure VM with custom 10Gbps link speed
-.\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "vcenter.company.com" -VMName "DatabaseServer" -LinkSpeed 10000
+Set-VMXNet3LinkSpeed -VMName "DatabaseServer" -LinkSpeed 10000
 
-# Example 3: Configure multiple VMs in a loop
-$VMs = @("Web01", "Web02", "App01", "App02")
-$vCenterServer = "vcenter.company.com"
+# Example 3: Configure specific network adapter
+Set-VMXNet3LinkSpeed -VMName "AppServer01" -LinkSpeed 40000 -AdapterIndex 1
 
-foreach ($VM in $VMs) {
-    Write-Host "Configuring $VM..."
-    .\vmware-vm-vmxnet3-link-speed.ps1 -vCenter $vCenterServer -VMName $VM -LinkSpeed 25000
+# Example 4: Query current configuration
+Get-VMXNet3LinkSpeed -VMName "WebServer01"
+
+# Example 5: Query multiple VMs
+Get-VM -Name "Web*" | Get-VMXNet3LinkSpeed
+
+# Example 6: Configure multiple VMs with pipeline
+@("Web01", "Web02", "App01") | ForEach-Object {
+    Set-VMXNet3LinkSpeed -VMName $_ -LinkSpeed 25000
 }
 
-# Example 4: Configure with error handling
+# Example 7: Bulk configuration from CSV
+Set-VMXNet3LinkSpeedBulk -CsvPath "examples\vm-config-sample.csv"
+
+# Example 8: With error handling and logging
 try {
-    .\vmware-vm-vmxnet3-link-speed.ps1 -vCenter "vcenter.company.com" -VMName "TestVM" -LinkSpeed 40000
-    Write-Host "Configuration completed successfully"
+    Set-VMXNet3LinkSpeed -VMName "TestVM" -LinkSpeed 40000 -Force
+    Write-Host "✓ Configuration completed successfully"
 } catch {
     Write-Error "Configuration failed: $($_.Exception.Message)"
 }
+
+# Disconnect from vCenter
+Disconnect-VIServer -Confirm:$false

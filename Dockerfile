@@ -1,5 +1,5 @@
 # PowerShell Core with VMware PowerCLI
-FROM mcr.microsoft.com/powershell:7.4-ubuntu-22.04
+FROM mcr.microsoft.com/powershell:7.5-ubuntu-24.04
 
 # Set working directory
 WORKDIR /app

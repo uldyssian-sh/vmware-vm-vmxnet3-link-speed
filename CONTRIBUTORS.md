@@ -2,53 +2,30 @@
 
 This project exists thanks to all the people who contribute.
 
-## Core Contributors
+## Core Team
 
-### uldyssian-sh LT
-- **Email**: 25517637+uldyssian-sh@users.noreply.github.com
-- **Role**: Project Maintainer & Lead Developer
-- **Contributions**: 
-  - Initial project creation and architecture
-  - PowerShell module development
-  - Documentation and examples
-  - CI/CD pipeline setup
-  - Security and compliance implementation
+### Maintainers
+- **uldyssian-sh LT** ([@uldyssian-sh](https://github.com/uldyssian-sh))
+  - Email: 25517637+uldyssian-sh@users.noreply.github.com
+  - Role: Project Lead & Maintainer
 
 ## Automated Contributors
 
-### dependabot[bot]
-- **Role**: Dependency Management
-- **Contributions**:
-  - Automated dependency updates
-  - Security vulnerability patches
-  - Package version management
+### Bots & Automation
+- **dependabot[bot]** ([@dependabot](https://github.com/dependabot))
+  - Role: Dependency Management
 
-### actions-user
-- **Role**: CI/CD Automation
-- **Contributions**:
-  - Automated testing and validation
-  - Deployment processes
-  - Code quality checks
+- **github-actions[bot]** (GitHub Actions)
+  - Role: CI/CD Automation
 
-## How to Contribute
+- **actions-user** (GitHub Actions)
+  - Role: Repository Automation
 
-We welcome contributions from the community! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on:
+## Contact
 
-- Code of Conduct
-- Development setup
-- Pull request process
-- Issue reporting
-- Security vulnerability reporting
-
-## Recognition
-
-All contributors are recognized in our:
-- GitHub repository contributors list
-- Release notes and changelogs
-- Project documentation
-
-Thank you to everyone who has contributed to making this project better!
+- **GitHub Issues**: [Create an issue](../../issues/new)
+- **Email**: 25517637+uldyssian-sh@users.noreply.github.com
 
 ---
 
-**Note**: This list is automatically maintained. If you've contributed and don't see your name, please open an issue.
+**Thank you to all our contributors!** 🙏

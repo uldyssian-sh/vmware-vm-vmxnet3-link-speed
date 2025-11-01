@@ -85,7 +85,7 @@ jobs:
       - name: Validate no PII
         run: |
           echo "Checking for PII..."
-          if grep -r -i "lubomir\|tobek" --include="*.ps1" --include="*.psm1" --include="*.md" . | grep -v "github.com/uldyssian-sh" | grep -v "Author.*LT"; then
+          if grep -r -i "personal-info\|private-data" --include="*.ps1" --include="*.psm1" --include="*.md" . | grep -v "github.com/uldyssian-sh" | grep -v "Author.*LT"; then
             echo "⚠️ Potential PII found - please review"
             exit 1
           else

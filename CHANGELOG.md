@@ -24,7 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **README.md** - Complete rewrite for PowerShell focus
-- **Requirements.txt** - Updated for PowerShell modules
 - **CI workflow** - Enhanced with security scanning and documentation checks
 - **Examples** - Modernized with module functions
 - **Error handling** - Improved throughout all functions
@@ -61,4 +60,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PowerShell 5.1 or later
 - VMware PowerCLI module
 - vSphere environment access
-- Appropriate permissions for VM configuration# Updated 20251109_123833

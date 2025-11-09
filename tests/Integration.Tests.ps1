@@ -39,4 +39,3 @@ Describe 'Mock Integration Tests' {
             { Set-VMXNet3LinkSpeed -VMName "Test" -LinkSpeed 150000 } | Should -Throw
         }
     }
-}# Updated 20251109_123833

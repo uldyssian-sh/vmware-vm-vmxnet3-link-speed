@@ -10,7 +10,6 @@ function Show-VMXNet3Dashboard {
     while ($true) {
         Clear-Host
         Write-Host "=== VMXNET3 Link Speed Dashboard ===" -ForegroundColor Green
-        Write-Host "Last Updated: $(Get-Date)" -ForegroundColor Yellow
         Write-Host ""
         
         $totalVMs = 0

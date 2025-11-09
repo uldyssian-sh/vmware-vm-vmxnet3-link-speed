@@ -146,4 +146,3 @@ Set-PowerCLIConfiguration -DefaultVIServerMode Multiple -Confirm:$false
 ### Support Information
 - VMware PowerCLI version: `Get-Module VMware.PowerCLI`
 - PowerShell version: `$PSVersionTable`
-- vSphere version: Check vCenter Server version# Updated 20251109_123833

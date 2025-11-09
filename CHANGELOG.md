@@ -61,4 +61,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PowerShell 5.1 or later
 - VMware PowerCLI module
 - vSphere environment access
-- Appropriate permissions for VM configuration
+- Appropriate permissions for VM configuration# Updated 20251109_123833

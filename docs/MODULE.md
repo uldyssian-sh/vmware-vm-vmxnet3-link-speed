@@ -222,4 +222,4 @@ Get-VIServer
 # Verify VM permissions
 $vm = Get-VM -Name "TestVM"
 Get-VIPermission -Entity $vm
-```
+```# Updated 20251109_123833

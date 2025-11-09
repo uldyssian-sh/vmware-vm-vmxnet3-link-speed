@@ -113,7 +113,6 @@ Brief description of changes
 ## Checklist
 - [ ] Code follows style guidelines
 - [ ] Self-review completed
-- [ ] Documentation updated
 ```
 
 ## Release Process

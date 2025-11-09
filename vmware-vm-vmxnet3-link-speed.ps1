@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 ﻿<#
 .SYNOPSIS
 Configure VMXNET3 link speed for a VMware VM.

@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 BeforeAll {
     $ModulePath = Join-Path $PSScriptRoot '..' 'VMwareVMXNET3'
     Import-Module $ModulePath -Force

@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 # Publish VMwareVMXNET3 module to PowerShell Gallery
 # Run this script to publish the module
 

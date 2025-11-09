@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 # Enterprise Deployment Example
 # Large-scale VMXNET3 configuration for enterprise environments
 

@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 # VMXNET3 Configuration Monitoring Dashboard
 # Real-time monitoring of link speed configurations
 

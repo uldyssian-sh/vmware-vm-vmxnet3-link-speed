@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 # Advanced Usage Examples for VMware VMXNET3 Link Speed Configuration
 
 # Prerequisites

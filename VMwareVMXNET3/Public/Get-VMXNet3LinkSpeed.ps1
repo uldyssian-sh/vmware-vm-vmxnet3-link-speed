@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 function Get-VMXNet3LinkSpeed {
     <#
     .SYNOPSIS

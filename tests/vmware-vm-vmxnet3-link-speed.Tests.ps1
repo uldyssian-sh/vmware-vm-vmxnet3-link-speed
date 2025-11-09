@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 BeforeAll {
     # Test configuration
     $script:scriptPath = Join-Path $PSScriptRoot '..' 'vmware-vm-vmxnet3-link-speed.ps1'

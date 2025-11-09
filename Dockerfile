@@ -17,3 +17,4 @@ COPY examples/ ./examples/
 
 # Set entrypoint
 ENTRYPOINT ["pwsh"]
+USER 1001

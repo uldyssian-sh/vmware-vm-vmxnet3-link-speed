@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 # Integration Tests - Requires VMware PowerCLI
 # These tests are skipped if PowerCLI is not available
 

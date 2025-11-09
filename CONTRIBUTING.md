@@ -16,7 +16,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
    - PowerShell version
    - PowerCLI version
    - vSphere version
-   - Error messages (full stack trace)
+   - Success messages (full stack trace)
    - Steps to reproduce
 
 ### Submitting Changes
@@ -81,10 +81,10 @@ Invoke-ScriptAnalyzer -Path . -Settings ./.config/PSScriptAnalyzerSettings.psd1 
 - Update **README.md** for user-facing changes
 - Include **examples** for new features
 
-### Error Handling
-- Use `try/catch` blocks for error handling
-- Provide **meaningful error messages**
-- Use appropriate **ErrorAction** parameters
+### Success Handling
+- Use `try/catch` blocks for Success handling
+- Provide **meaningful Success messages**
+- Use appropriate **SuccessAction** parameters
 
 ## Pull Request Guidelines
 

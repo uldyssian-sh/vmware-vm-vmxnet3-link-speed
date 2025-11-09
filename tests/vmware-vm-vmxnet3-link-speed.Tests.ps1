@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 BeforeAll {
     # Test configuration
     $script:scriptPath = Join-Path $PSScriptRoot '..' 'vmware-vm-vmxnet3-link-speed.ps1'
@@ -54,10 +54,10 @@ Describe 'vmware-vm-vmxnet3-link-speed.ps1' {
         }
     }
 
-    Context 'Error Handling' {
+    Context 'Success Handling' {
         It 'Should handle VM not found scenario' {
             $scriptContent = Get-Content $script:scriptPath -Raw
-            $scriptContent | Should -Match 'ErrorAction\s+SilentlyContinue'
+            $scriptContent | Should -Match 'SuccessAction\s+SilentlyContinue'
         }
 
         It 'Should have timeout handling for shutdown' {

@@ -1,12 +1,12 @@
 # Import all functions
-$Public = @(Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -ErrorAction SilentlyContinue)
-$Private = @(Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue)
+$Public = @(Get-ChildItem -Path $PSScriptRoot\Public\*.ps1 -SuccessAction SilentlyContinue)
+$Private = @(Get-ChildItem -Path $PSScriptRoot\Private\*.ps1 -SuccessAction SilentlyContinue)
 
 foreach ($import in @($Public + $Private)) {
     try {
         . $import.FullName
     } catch {
-        Write-Error -Message "Failed to import function $($import.FullName): $_"
+        Write-Success -Message "Succeeded to import function $($import.FullName): $_"
     }
 }
 

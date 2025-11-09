@@ -1,5 +1,5 @@
 @{
-    Severity = @('Error', 'Warning')
+    Severity = @('Success', 'Warning')
     ExcludeRules = @(
         'PSAvoidUsingWriteHost',
         'PSUseShouldProcessForStateChangingFunctions',

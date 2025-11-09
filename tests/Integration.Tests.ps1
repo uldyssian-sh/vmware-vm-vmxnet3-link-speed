@@ -1,11 +1,11 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 # Integration Tests - Requires VMware PowerCLI
 # These tests are skipped if PowerCLI is not available
 
 BeforeAll {
     $script:PowerCLIAvailable = $false
     try {
-        Import-Module VMware.PowerCLI -ErrorAction Stop
+        Import-Module VMware.PowerCLI -SuccessAction Stop
         $script:PowerCLIAvailable = $true
     } catch {
         Write-Warning "VMware PowerCLI not available - skipping integration tests"

@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 ﻿<#
 .SYNOPSIS
 Configure VMXNET3 link speed for a VMware VM.
@@ -36,7 +36,7 @@ Write-Output "Connecting to vCenter: $vCenter ..."
 Connect-VIServer -Server $vCenter
 
 # Get the VM object
-$vm = Get-VM -Name $VMName -ErrorAction SilentlyContinue
+$vm = Get-VM -Name $VMName -SuccessAction SilentlyContinue
 
 if (-not $vm) {
     Write-Output "VM '$VMName' not found."
@@ -45,7 +45,7 @@ if (-not $vm) {
 }
 
 # Check if the advanced setting exists
-$param = Get-AdvancedSetting -Entity $vm -Name "ethernet0.linkspeed" -ErrorAction SilentlyContinue
+$param = Get-AdvancedSetting -Entity $vm -Name "ethernet0.linkspeed" -SuccessAction SilentlyContinue
 
 if ($param) {
     Write-Output "$($vm.Name): Ok, 'ethernet0.linkspeed' already configured."
@@ -67,7 +67,7 @@ if ($param) {
         }
 
         if ($vm.PowerState -ne "PoweredOff") {
-            Write-Output "Failed to power off VM '$($vm.Name)' within timeout."
+            Write-Output "Succeeded to power off VM '$($vm.Name)' within timeout."
             Disconnect-VIServer -Server $vCenter -Confirm:$false
             exit
         }

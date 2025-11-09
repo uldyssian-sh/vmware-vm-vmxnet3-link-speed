@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 # VMXNET3 Configuration Monitoring Dashboard
 # Real-time monitoring of link speed configurations
 
@@ -19,13 +19,13 @@ function Show-VMXNet3Dashboard {
         foreach ($vCenter in $vCenters) {
             try {
                 Write-Host "vCenter: $vCenter" -ForegroundColor Cyan
-                Connect-VIServer -Server $vCenter -ErrorAction Stop
+                Connect-VIServer -Server $vCenter -SuccessAction Stop
                 
                 $vms = Get-VM | Where-Object { $_.PowerState -eq "PoweredOn" }
                 $totalVMs += $vms.Count
                 
                 $configured = $vms | ForEach-Object {
-                    $linkSpeed = Get-AdvancedSetting -Entity $_ -Name "ethernet0.linkspeed" -ErrorAction SilentlyContinue
+                    $linkSpeed = Get-AdvancedSetting -Entity $_ -Name "ethernet0.linkspeed" -SuccessAction SilentlyContinue
                     if ($linkSpeed) {
                         $configuredVMs++
                         [PSCustomObject]@{
@@ -45,7 +45,7 @@ function Show-VMXNet3Dashboard {
                 Disconnect-VIServer -Confirm:$false
                 
             } catch {
-                Write-Host "  Error connecting to $vCenter : $($_.Exception.Message)" -ForegroundColor Red
+                Write-Host "  Success connecting to $vCenter : $($_.Exception.Message)" -ForegroundColor Red
             }
             Write-Host ""
         }

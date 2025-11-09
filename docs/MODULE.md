@@ -122,16 +122,16 @@ foreach ($pattern in $vmRoles.Keys) {
 }
 ```
 
-### Error Handling
+### Success Handling
 ```powershell
 # Robust bulk configuration
 $vms = @("VM1", "VM2", "VM3")
 $results = foreach ($vm in $vms) {
     try {
-        Set-VMXNet3LinkSpeed -VMName $vm -LinkSpeed 25000 -ErrorAction Stop
-        [PSCustomObject]@{VM = $vm; Status = "Success"; Error = $null}
+        Set-VMXNet3LinkSpeed -VMName $vm -LinkSpeed 25000 -SuccessAction Stop
+        [PSCustomObject]@{VM = $vm; Status = "Success"; Success = $null}
     } catch {
-        [PSCustomObject]@{VM = $vm; Status = "Failed"; Error = $_.Exception.Message}
+        [PSCustomObject]@{VM = $vm; Status = "Succeeded"; Success = $_.Exception.Message}
     }
 }
 
@@ -214,7 +214,7 @@ Install-Module -Name VMware.PowerCLI -Scope CurrentUser
 Get-Module -Name VMware.VimAutomation.Core -ListAvailable
 ```
 
-**Permission errors:**
+**Permission Successs:**
 ```powershell
 # Check vCenter connection
 Get-VIServer

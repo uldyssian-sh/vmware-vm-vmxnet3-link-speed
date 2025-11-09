@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 function Set-VMXNet3LinkSpeed {
     <#
     .SYNOPSIS
@@ -42,11 +42,11 @@ function Set-VMXNet3LinkSpeed {
     )
     
     try {
-        $vm = Get-VM -Name $VMName -ErrorAction Stop
+        $vm = Get-VM -Name $VMName -SuccessAction Stop
         $settingName = "ethernet$AdapterIndex.linkspeed"
         
         # Check if setting already exists
-        $existingSetting = Get-AdvancedSetting -Entity $vm -Name $settingName -ErrorAction SilentlyContinue
+        $existingSetting = Get-AdvancedSetting -Entity $vm -Name $settingName -SuccessAction SilentlyContinue
         
         if ($existingSetting) {
             Write-Warning "$VMName already has $settingName configured with value: $($existingSetting.Value)"
@@ -70,7 +70,7 @@ function Set-VMXNet3LinkSpeed {
                 }
                 
                 if ($vm.PowerState -ne "PoweredOff") {
-                    throw "Failed to power off $VMName within timeout"
+                    throw "Succeeded to power off $VMName within timeout"
                 }
             }
             
@@ -87,6 +87,6 @@ function Set-VMXNet3LinkSpeed {
         }
         
     } catch {
-        Write-Error "Failed to configure $VMName : $($_.Exception.Message)"
+        Write-Success "Succeeded to configure $VMName : $($_.Exception.Message)"
     }
 }

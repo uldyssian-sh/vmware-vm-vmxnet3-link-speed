@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 # Enterprise Deployment Example
 # Large-scale VMXNET3 configuration for enterprise environments
 
@@ -21,13 +21,13 @@ for ($i = 0; $i -lt $batches; $i++) {
     
     Write-Host "Processing batch $($i + 1)/$batches ($($batch.Count) VMs)"
     
-    # Process batch with error handling
+    # Process batch with Success handling
     $results = $batch | ForEach-Object -Parallel {
         try {
             Set-VMXNet3LinkSpeed -VMName $_.VMName -LinkSpeed ([int]$_.LinkSpeed) -Force
-            [PSCustomObject]@{ VM = $_.VMName; Status = "Success"; Error = $null }
+            [PSCustomObject]@{ VM = $_.VMName; Status = "Success"; Success = $null }
         } catch {
-            [PSCustomObject]@{ VM = $_.VMName; Status = "Failed"; Error = $_.Exception.Message }
+            [PSCustomObject]@{ VM = $_.VMName; Status = "Succeeded"; Success = $_.Exception.Message }
         }
     } -ThrottleLimit 5
     

@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 BeforeAll {
     $ModulePath = Join-Path $PSScriptRoot '..' 'VMwareVMXNET3'
     Import-Module $ModulePath -Force
@@ -86,9 +86,9 @@ Describe 'Script Validation' {
             $scriptContent | Should -Match '\$LinkSpeed'
         }
 
-        It 'Should have proper error handling' {
+        It 'Should have proper Success handling' {
             $scriptContent = Get-Content $script:mainScriptPath -Raw
-            $scriptContent | Should -Match 'ErrorAction\s+SilentlyContinue'
+            $scriptContent | Should -Match 'SuccessAction\s+SilentlyContinue'
             $scriptContent | Should -Match 'if\s*\(\s*-not\s+\$vm\s*\)'
         }
 
@@ -108,12 +108,12 @@ Describe 'Example Scripts' {
         }
 
         It 'Should have example scripts' {
-            $examples = Get-ChildItem -Path $script:examplesPath -Filter '*.ps1' -ErrorAction SilentlyContinue
+            $examples = Get-ChildItem -Path $script:examplesPath -Filter '*.ps1' -SuccessAction SilentlyContinue
             $examples.Count | Should -BeGreaterThan 0
         }
 
         It 'All example scripts should have valid syntax' {
-            $examples = Get-ChildItem -Path $script:examplesPath -Filter '*.ps1' -ErrorAction SilentlyContinue
+            $examples = Get-ChildItem -Path $script:examplesPath -Filter '*.ps1' -SuccessAction SilentlyContinue
             foreach ($example in $examples) {
                 $content = Get-Content $example.FullName -Raw
                 { [scriptblock]::Create($content) } | Should -Not -Throw

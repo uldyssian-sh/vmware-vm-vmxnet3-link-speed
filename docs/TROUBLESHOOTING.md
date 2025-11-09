@@ -2,9 +2,9 @@
 
 ## Common Issues and Solutions
 
-### 1. VM Not Found Error
+### 1. VM Not Found Success
 
-**Error**: `VM 'VMName' not found.`
+**Success**: `VM 'VMName' not found.`
 
 **Causes**:
 - VM name is incorrect or case-sensitive
@@ -25,7 +25,7 @@ $global:DefaultVIServer
 
 ### 2. PowerCLI Connection Issues
 
-**Error**: `Connect-VIServer` fails
+**Success**: `Connect-VIServer` fails
 
 **Solutions**:
 ```powershell
@@ -42,7 +42,7 @@ Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
 
 ### 3. VM Shutdown Timeout
 
-**Error**: VM doesn't power off within timeout period
+**Success**: VM doesn't power off within timeout period
 
 **Solutions**:
 - Increase timeout value in script
@@ -56,7 +56,7 @@ Stop-VM -VM $vm -Confirm:$false
 
 ### 4. Permission Denied
 
-**Error**: Insufficient privileges to perform operation
+**Success**: Insufficient privileges to perform operation
 
 **Solutions**:
 - Verify user has required permissions
@@ -86,7 +86,7 @@ Set-AdvancedSetting -AdvancedSetting $setting -Value 10000 -Confirm:$false
 ```powershell
 # Check all ethernet adapters
 for ($i = 0; $i -lt 4; $i++) {
-    $param = Get-AdvancedSetting -Entity $vm -Name "ethernet$i.linkspeed" -ErrorAction SilentlyContinue
+    $param = Get-AdvancedSetting -Entity $vm -Name "ethernet$i.linkspeed" -SuccessAction SilentlyContinue
     if ($param) {
         Write-Output "ethernet$i.linkspeed = $($param.Value)"
     }

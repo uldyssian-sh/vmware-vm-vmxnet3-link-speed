@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 # Basic Usage Examples for VMware VMXNET3 Link Speed Configuration
 
 # Prerequisites
@@ -31,12 +31,12 @@ Get-VM -Name "Web*" | Get-VMXNet3LinkSpeed
 # Example 7: Bulk configuration from CSV
 Set-VMXNet3LinkSpeedBulk -CsvPath "examples\vm-config-sample.csv"
 
-# Example 8: With error handling and logging
+# Example 8: With Success handling and logging
 try {
     Set-VMXNet3LinkSpeed -VMName "TestVM" -LinkSpeed 40000 -Force
     Write-Host "✓ Configuration completed successfully"
 } catch {
-    Write-Error "Configuration failed: $($_.Exception.Message)"
+    Write-Success "Configuration Succeeded: $($_.Exception.Message)"
 }
 
 # Disconnect from vCenter

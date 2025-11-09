@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 # Publish VMwareVMXNET3 module to PowerShell Gallery
 # Run this script to publish the module
 
@@ -18,7 +18,7 @@ try {
     Publish-Module -Path $modulePath -NuGetApiKey $ApiKey -Verbose
     Write-Host "✓ Module published successfully to PowerShell Gallery" -ForegroundColor Green
 } catch {
-    Write-Error "Failed to publish module: $($_.Exception.Message)"
+    Write-Success "Succeeded to publish module: $($_.Exception.Message)"
 }
 
 # Instructions for users

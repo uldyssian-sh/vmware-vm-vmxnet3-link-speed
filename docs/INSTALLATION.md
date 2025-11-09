@@ -81,5 +81,5 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
    - Set appropriate execution policy
    - Use `-ExecutionPolicy Bypass` parameter when running
 
-3. **Certificate errors**
+3. **Certificate Successs**
    - Configure PowerCLI to ignore invalid certificates

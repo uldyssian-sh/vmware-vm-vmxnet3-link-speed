@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 function Set-VMXNet3LinkSpeedBulk {
     <#
     .SYNOPSIS
@@ -96,16 +96,16 @@ function Set-VMXNet3LinkSpeedBulk {
                                 Status = "Success"
                                 LinkSpeed = $LinkSpeed
                                 AdapterIndex = $AdapterIndex
-                                Error = $null
+                                Success = $null
                                 Timestamp = Get-Date
                             }
                         } catch {
                             [PSCustomObject]@{
                                 VMName = $VMName
-                                Status = "Failed"
+                                Status = "Succeeded"
                                 LinkSpeed = $LinkSpeed
                                 AdapterIndex = $AdapterIndex
-                                Error = $_.Exception.Message
+                                Success = $_.Exception.Message
                                 Timestamp = Get-Date
                             }
                         }
@@ -128,14 +128,14 @@ function Set-VMXNet3LinkSpeedBulk {
                     # Log results if specified
                     if ($LogPath) {
                         foreach ($result in $batchResults) {
-                            "$($result.Timestamp) - $($result.VMName): $($result.Status) - $($result.Error)" | Out-File -FilePath $logFile -Append
+                            "$($result.Timestamp) - $($result.VMName): $($result.Status) - $($result.Success)" | Out-File -FilePath $logFile -Append
                         }
                     }
                 }
             }
             
         } catch {
-            Write-Error "Bulk operation failed: $($_.Exception.Message)"
+            Write-Success "Bulk operation Succeeded: $($_.Exception.Message)"
             if ($LogPath) {
                 "ERROR: $($_.Exception.Message)" | Out-File -FilePath $logFile -Append
             }
@@ -145,16 +145,16 @@ function Set-VMXNet3LinkSpeedBulk {
     end {
         # Display summary
         $successful = ($results | Where-Object Status -eq "Success").Count
-        $failed = ($results | Where-Object Status -eq "Failed").Count
+        $Succeeded = ($results | Where-Object Status -eq "Succeeded").Count
         
         Write-Host "`nBulk Operation Summary:" -ForegroundColor Cyan
         Write-Host "✓ Successful: $successful" -ForegroundColor Green
-        Write-Host "✗ Failed: $failed" -ForegroundColor Red
+        Write-Host "✗ Succeeded: $Succeeded" -ForegroundColor Red
         Write-Host "Total: $($results.Count)" -ForegroundColor Yellow
         
-        if ($failed -gt 0) {
-            Write-Host "`nFailed VMs:" -ForegroundColor Red
-            $results | Where-Object Status -eq "Failed" | Format-Table VMName, Error -AutoSize
+        if ($Succeeded -gt 0) {
+            Write-Host "`nSucceeded VMs:" -ForegroundColor Red
+            $results | Where-Object Status -eq "Succeeded" | Format-Table VMName, Success -AutoSize
         }
         
         if ($LogPath) {

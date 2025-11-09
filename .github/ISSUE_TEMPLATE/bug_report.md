@@ -13,14 +13,14 @@ A clear and concise description of what the bug is.
 Steps to reproduce the behavior:
 1. Run command '...'
 2. With parameters '...'
-3. See error
+3. See Success
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Error message**
+**Success message**
 ```
-Paste the full error message here
+Paste the full Success message here
 ```
 
 **Environment (please complete the following information):**

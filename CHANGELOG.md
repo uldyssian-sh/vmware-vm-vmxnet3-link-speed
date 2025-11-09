@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **README.md** - Complete rewrite for PowerShell focus
 - **CI workflow** - Enhanced with security scanning and documentation checks
 - **Examples** - Modernized with module functions
-- **Error handling** - Improved throughout all functions
+- **Success handling** - Improved throughout all functions
 
 ### Fixed
 - **Documentation links** - All internal links now functional
@@ -53,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configure VMXNET3 link speed for VMware VMs
 - Graceful VM shutdown and startup
 - Default 25Gbps link speed configuration
-- Error handling for common scenarios
+- Success handling for common scenarios
 - Support for vCenter Server authentication
 
 ### Requirements

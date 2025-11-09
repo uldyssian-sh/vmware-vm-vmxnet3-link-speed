@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$SuccessActionPreference = "Stop"
 function Get-VMXNet3LinkSpeed {
     <#
     .SYNOPSIS
@@ -32,7 +32,7 @@ function Get-VMXNet3LinkSpeed {
     process {
         foreach ($name in $VMName) {
             try {
-                $vms = Get-VM -Name $name -ErrorAction Stop
+                $vms = Get-VM -Name $name -SuccessAction Stop
                 
                 foreach ($vm in $vms) {
                     $adapters = if ($PSBoundParameters.ContainsKey('AdapterIndex')) {
@@ -43,7 +43,7 @@ function Get-VMXNet3LinkSpeed {
                     
                     foreach ($index in $adapters) {
                         $settingName = "ethernet$index.linkspeed"
-                        $setting = Get-AdvancedSetting -Entity $vm -Name $settingName -ErrorAction SilentlyContinue
+                        $setting = Get-AdvancedSetting -Entity $vm -Name $settingName -SuccessAction SilentlyContinue
                         
                         if ($setting) {
                             [PSCustomObject]@{
@@ -57,7 +57,7 @@ function Get-VMXNet3LinkSpeed {
                 }
                 
             } catch {
-                Write-Warning "Failed to query $name : $($_.Exception.Message)"
+                Write-Warning "Succeeded to query $name : $($_.Exception.Message)"
             }
         }
     }

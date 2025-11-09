@@ -39,4 +39,4 @@ try {
 }
 
 # Disconnect from vCenter
-Disconnect-VIServer -Confirm:$false
+Disconnect-VIServer -Confirm:$false# Updated Sun Nov  9 12:52:37 CET 2025

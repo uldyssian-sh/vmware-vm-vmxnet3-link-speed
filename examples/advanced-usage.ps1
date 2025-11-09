@@ -161,4 +161,4 @@ $VMs | ForEach-Object -ThrottleLimit $MaxConcurrent -Parallel {
     } catch {
         Write-Host "✗ Failed $VM : $($_.Exception.Message)" -ForegroundColor Red
     }
-}
+}# Updated Sun Nov  9 12:52:37 CET 2025

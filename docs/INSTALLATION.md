@@ -85,3 +85,4 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
    - Configure PowerCLI to ignore invalid certificates
    - Or properly configure SSL certificates in your environment# Updated 20251109_123833
 # Updated Sun Nov  9 12:49:26 CET 2025
+# Updated Sun Nov  9 12:52:37 CET 2025

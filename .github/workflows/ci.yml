@@ -121,4 +121,4 @@ jobs:
             Write-Host "Checking: $($example.Name)"
             $null = [System.Management.Automation.PSParser]::Tokenize((Get-Content $example.FullName -Raw), [ref]$null)
           }
-          Write-Host "✓ All example scripts are valid"
+          Write-Host "✓ All example scripts are valid"# Updated Sun Nov  9 12:49:26 CET 2025

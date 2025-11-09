@@ -14,3 +14,4 @@ Please use GitHub's private vulnerability reporting:
 3. Fill out the private advisory form
 
 This keeps the vulnerability private until a fix is available.
+# Updated Sun Nov  9 12:49:26 CET 2025

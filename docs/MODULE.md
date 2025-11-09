@@ -223,3 +223,4 @@ Get-VIServer
 $vm = Get-VM -Name "TestVM"
 Get-VIPermission -Entity $vm
 ```# Updated 20251109_123833
+# Updated Sun Nov  9 12:49:26 CET 2025

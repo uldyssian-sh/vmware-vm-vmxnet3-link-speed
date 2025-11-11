@@ -12,6 +12,12 @@
 [![Size](https://img.shields.io/github/repo-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](#)
 [![Security Scan](https://img.shields.io/badge/security-scanned-green?style=flat-square)](#)
 
+[![License](https://img.shields.io/github/license/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](LICENSE)
+[![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)](#)
+[![Languages](https://img.shields.io/github/languages/count/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](#)
+[![Size](https://img.shields.io/github/repo-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](#)
+[![Security Scan](https://img.shields.io/badge/security-scanned-green?style=flat-square)](#)
+
 [![GitHub license](https://img.shields.io/github/license/uldyssian-sh/vmware-vm-vmxnet3-link-speed)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/uldyssian-sh/vmware-vm-vmxnet3-link-speed)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/issues)
 [![GitHub stars](https://img.shields.io/github/stars/uldyssian-sh/vmware-vm-vmxnet3-link-speed)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/stargazers)
@@ -49,6 +55,12 @@ Enterprise-grade PowerShell module for configuring VMXNET3 network adapter link 
 
 ```powershell
 # Clone the repository
+
+[![License](https://img.shields.io/github/license/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](LICENSE)
+[![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)](#)
+[![Languages](https://img.shields.io/github/languages/count/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](#)
+[![Size](https://img.shields.io/github/repo-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](#)
+[![Security Scan](https://img.shields.io/badge/security-scanned-green?style=flat-square)](#)
 
 [![License](https://img.shields.io/github/license/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](LICENSE)
 [![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)](#)

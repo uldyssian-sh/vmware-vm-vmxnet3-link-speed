@@ -6,6 +6,12 @@
 [![Size](https://img.shields.io/github/repo-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](#)
 [![Security Scan](https://img.shields.io/badge/security-scanned-green?style=flat-square)](#)
 
+[![License](https://img.shields.io/github/license/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](LICENSE)
+[![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)](#)
+[![Languages](https://img.shields.io/github/languages/count/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](#)
+[![Size](https://img.shields.io/github/repo-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed?style=flat-square)](#)
+[![Security Scan](https://img.shields.io/badge/security-scanned-green?style=flat-square)](#)
+
 [![GitHub license](https://img.shields.io/github/license/uldyssian-sh/vmware-vm-vmxnet3-link-speed)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/uldyssian-sh/vmware-vm-vmxnet3-link-speed)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/issues)
 [![GitHub stars](https://img.shields.io/github/stars/uldyssian-sh/vmware-vm-vmxnet3-link-speed)](https://github.com/uldyssian-sh/vmware-vm-vmxnet3-link-speed/stargazers)
@@ -198,10 +204,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Docker Support:** ✅ PowerShell Core
 - **GitHub Free Tier:** ✅ Optimized
 
-![GitHub repo size](https://img.shields.io/github/repo-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed)
-![GitHub code size](https://img.shields.io/github/languages/code-size/uldyssian-sh/vmware-vm-vmxnet3-link-speed)
-![GitHub last commit](https://img.shields.io/github/last-commit/uldyssian-sh/vmware-vm-vmxnet3-link-speed)
-![GitHub contributors](https://img.shields.io/github/contributors/uldyssian-sh/vmware-vm-vmxnet3-link-speed)
 
 ---
 
